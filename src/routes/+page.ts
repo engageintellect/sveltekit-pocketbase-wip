@@ -9,8 +9,6 @@ export const load = (async () => {
 		sort: '-created'
 	});
 
-	console.log('hey hey hey');
-
-	// console.log({ records });
+	console.log({ records });
 	return { records };
 }) satisfies PageLoad;

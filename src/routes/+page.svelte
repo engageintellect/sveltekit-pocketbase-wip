@@ -5,9 +5,9 @@
 
 	import PocketBase from 'pocketbase';
 
-	let title = '';
-	let artist = '';
-	let genre = '';
+	let title: string;
+	let artist: string;
+	let genre: string;
 
 	const handleSubmit = async () => {
 		const pb = new PocketBase('http://45.56.88.245:8090');
@@ -19,50 +19,46 @@
 			year: 'test'
 		};
 
-		const record = await pb.collection('albums').create(albumData);
+		if (!title || !artist || !genre) {
+			alert('Please fill out all fields');
+			return;
+		} else {
+			const record = await pb.collection('albums').create(albumData);
 
-		console.log('Data:', albumData);
-		console.log('Record:', record);
-		console.log('Record Added!');
+			console.log('Data:', albumData);
+			console.log('Record:', record);
+			console.log('Record Added!');
+			location.reload();
+		}
 	};
 </script>
 
-<div>
-	<div>
-		{#each data.records as item}
-			<div class="my-5">
-				<div class="">Name: {item.name}</div>
-				<div class="">Artist: {item.artist}</div>
-				<div class="">Genre: {item.genre}</div>
-			</div>
-		{/each}
-
-		<div class="flex flex-col my-10">
-			<div>
-				<strong>Title:</strong>
-				{title}
-			</div>
-			<div>
-				<strong>Artist:</strong>
-				{artist}
-			</div>
-			<div>
-				<strong>Genre:</strong>
-				{genre}
+<div class="h-screen">
+	<div class="bg-zinc-200">
+		<div class="bg-zinc-500 p-2">
+			<div class="text-4xl text-center text-white py-5">hello world</div>
+			<div class="flex flex-col w-full justify-center items-center">
+				<div class="flex flex-col md:flex-row gap-5 w-full">
+					<input class="p-2 w-full" type="text" placeholder="title" bind:value={title} />
+					<input class="p-2 w-full" type="text" placeholder="artist" bind:value={artist} />
+					<input class="p-2 w-full" type="text" placeholder="genre" bind:value={genre} />
+				</div>
+				<button
+					on:click={() => handleSubmit()}
+					class="w-full bg-zinc-900 flex justify-center text-white text-xl py-2 px-4">Submit</button
+				>
 			</div>
 		</div>
 
-		<div class="flex flex-col gap-5">
-			<div class="flex flex-col lg:flex-row max-w-lg gap-5">
-				<input type="text" placeholder="title" bind:value={title} />
-				<input type="text" placeholder="artist" bind:value={artist} />
-				<input type="text" placeholder="genre" bind:value={genre} />
-			</div>
-			<div class="">
-				<button on:click={() => handleSubmit()} class="bg-zinc-900 text-white text-xl py-2 px-4"
-					>clik me</button
-				>
-			</div>
+		<div class="h-[50vh] overflow-auto p-2">
+			{#each data.records as item}
+				<div class="my-5">
+					<div class="">Name: {item.name}</div>
+					<div class="">Artist: {item.artist}</div>
+					<div class="">Genre: {item.genre}</div>
+					<div class="">Genre: {item.year}</div>
+				</div>
+			{/each}
 		</div>
 	</div>
 </div>
