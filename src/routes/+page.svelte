@@ -11,9 +11,8 @@
 	let genre: string;
 	let year: string;
 
-	const handleSubmit = async () => {
+	const handleCreate = async () => {
 		const pb = new PocketBase('http://45.56.88.245:8090');
-		// example create data
 		const albumData = {
 			name: title,
 			artist: artist,
@@ -46,7 +45,7 @@
 					<input class="p-2 w-full" type="text" placeholder="genre" bind:value={genre} />
 				</div>
 				<button
-					on:click={() => handleSubmit()}
+					on:click={() => handleCreate()}
 					class="w-full bg-zinc-900 flex justify-center text-white text-xl py-2 px-4">Submit</button
 				>
 			</div>
