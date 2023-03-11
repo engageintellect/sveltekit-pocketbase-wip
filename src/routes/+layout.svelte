@@ -10,7 +10,7 @@
 		<div class="">
 			<Nav />
 		</div>
-		<div class=" max-w-5xl mx-auto">
+		<div class=" max-w-5xl mx-auto p-5">
 			<slot />
 		</div>
 		<div>

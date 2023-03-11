@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Card from '$lib/components/Card.svelte';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
@@ -8,6 +9,7 @@
 	let title: string;
 	let artist: string;
 	let genre: string;
+	let year: string;
 
 	const handleSubmit = async () => {
 		const pb = new PocketBase('http://45.56.88.245:8090');
@@ -16,7 +18,7 @@
 			name: title,
 			artist: artist,
 			genre: genre,
-			year: 'test'
+			year: year
 		};
 
 		if (!title || !artist || !genre) {
@@ -53,10 +55,7 @@
 		<div class="h-[50vh] overflow-auto p-2">
 			{#each data.records as item}
 				<div class="my-5">
-					<div class="">Name: {item.name}</div>
-					<div class="">Artist: {item.artist}</div>
-					<div class="">Genre: {item.genre}</div>
-					<div class="">Genre: {item.year}</div>
+					<Card props={item.name} artist={item.artist} genre={item.genre} year={item.year} />
 				</div>
 			{/each}
 		</div>

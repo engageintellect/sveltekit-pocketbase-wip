@@ -1,9 +1,12 @@
 <script lang="ts">
-	import type { PageData } from './$types';
-
-	export let data: PageData;
+	let res: {};
+	async function GET() {
+		const response = await fetch('/api/hello');
+		res = await response.json();
+		return res;
+	}
 </script>
 
-<h1>{data.item.id}</h1>
-<h1>{data.item.email}</h1>
-<h1>{data.item.body}</h1>
+<div>{JSON.stringify(res) || 'No Data'}</div>
+
+<button class="py-2 px-4 bg-slate-500" on:click={GET}>Click to get data</button>
