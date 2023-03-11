@@ -1,10 +1,9 @@
 <script lang="ts">
+	import PocketBase from 'pocketbase';
 	import Card from '$lib/components/Card.svelte';
 	import type { PageData } from './$types';
 
 	export let data: PageData;
-
-	import PocketBase from 'pocketbase';
 
 	let title: string;
 	let artist: string;
@@ -34,10 +33,10 @@
 	};
 </script>
 
-<div class="h-screen">
-	<div class="bg-zinc-200">
-		<div class="bg-zinc-500 p-2">
-			<div class="text-4xl text-center text-white py-5">hello world</div>
+<div class="min-h-screen">
+	<div class="bg-zinc-100">
+		<div class="bg-zinc-100 p=2 lg:p-5 sticky top-0 rounded-lg">
+			<div class="text-4xl drop-shadow-lg  font-semibold  py-5">Records</div>
 			<div class="flex flex-col w-full justify-center items-center">
 				<div class="flex flex-col md:flex-row gap-5 w-full">
 					<input class="p-2 w-full" type="text" placeholder="title" bind:value={title} />
@@ -46,14 +45,15 @@
 				</div>
 				<button
 					on:click={() => handleCreate()}
-					class="w-full bg-zinc-900 flex justify-center text-white text-xl py-2 px-4">Submit</button
+					class="w-full bg-zinc-900 flex justify-center mt-5 text-white text-xl py-2 px-4"
+					>Submit</button
 				>
 			</div>
 		</div>
 
-		<div class="h-[50vh] overflow-auto p-2">
+		<div class="lg:p-5 grid grid-cols-1 md:grid-cols-2 gap-5">
 			{#each data.records as item}
-				<div class="my-5">
+				<div class="">
 					<Card
 						id={item.id}
 						name={item.name}
@@ -66,3 +66,9 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.shadow-b {
+		box-shadow: 0 0px 5px 5px rgba(0, 0, 0, 0.2);
+	}
+</style>

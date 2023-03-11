@@ -6,7 +6,7 @@
 </script>
 
 <div class="w-screen h-screen">
-	<div class="bg-zinc-300">
+	<div class="bg-zinc-100">
 		<div class="">
 			<Nav />
 		</div>
