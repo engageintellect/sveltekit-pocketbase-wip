@@ -8,6 +8,6 @@ export const load = (async () => {
 		sort: '-created'
 	});
 
-	console.log({ records });
+	// console.log({ records });
 	return { records };
 }) satisfies PageLoad;

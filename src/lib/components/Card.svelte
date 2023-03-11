@@ -14,7 +14,7 @@
 	};
 </script>
 
-<div class="bg-zinc-50 p-2 rounded-md shadow-md">
+<div class="bg-zinc-50 p-2 shadow-md">
 	<div class="flex justify-between">
 		<div>
 			<div class="text-3xl">{name}</div>
@@ -27,7 +27,7 @@
 				on:click={() => {
 					handleDelete(id);
 				}}
-				class="p-3 bg-black text-white rounded-md">X</button
+				class="p-3 bg-black text-white">X</button
 			>
 		</div>
 	</div>

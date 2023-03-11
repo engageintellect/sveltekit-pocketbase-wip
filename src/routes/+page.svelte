@@ -25,9 +25,9 @@
 		} else {
 			const record = await pb.collection('albums').create(albumData);
 
-			console.log('Data:', albumData);
-			console.log('Record:', record);
-			console.log('Record Added!');
+			// console.log('Data:', albumData);
+			// console.log('Record:', record);
+			// console.log('Record Added!');
 			location.reload();
 		}
 	};
@@ -35,13 +35,14 @@
 
 <div class="min-h-screen">
 	<div class="bg-zinc-100">
-		<div class="bg-zinc-100 p=2 lg:p-5 sticky top-0 rounded-lg">
+		<div class="bg-zinc-100 p=2 lg:p-5 sticky top-0">
 			<div class="text-4xl drop-shadow-lg  font-semibold  py-5">Records</div>
 			<div class="flex flex-col w-full justify-center items-center">
 				<div class="flex flex-col md:flex-row gap-5 w-full">
 					<input class="p-2 w-full" type="text" placeholder="title" bind:value={title} />
 					<input class="p-2 w-full" type="text" placeholder="artist" bind:value={artist} />
 					<input class="p-2 w-full" type="text" placeholder="genre" bind:value={genre} />
+					<input class="p-2 w-full" type="text" placeholder="year" bind:value={year} />
 				</div>
 				<button
 					on:click={() => handleCreate()}
@@ -66,9 +67,3 @@
 		</div>
 	</div>
 </div>
-
-<style>
-	.shadow-b {
-		box-shadow: 0 0px 5px 5px rgba(0, 0, 0, 0.2);
-	}
-</style>
