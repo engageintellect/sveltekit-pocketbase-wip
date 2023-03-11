@@ -55,7 +55,13 @@
 		<div class="h-[50vh] overflow-auto p-2">
 			{#each data.records as item}
 				<div class="my-5">
-					<Card props={item.name} artist={item.artist} genre={item.genre} year={item.year} />
+					<Card
+						id={item.id}
+						name={item.name}
+						artist={item.artist}
+						genre={item.genre}
+						year={item.year}
+					/>
 				</div>
 			{/each}
 		</div>
