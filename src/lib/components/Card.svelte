@@ -1,5 +1,6 @@
 <script lang="ts">
 	import PocketBase from 'pocketbase';
+
 	export let name: string;
 	export let artist: string;
 	export let genre: string;
@@ -14,7 +15,7 @@
 	};
 </script>
 
-<div class="bg-zinc-50 p-2 shadow-md">
+<div class="p-2 shadow-md">
 	<div class="flex justify-between">
 		<div>
 			<div class="text-3xl">{name}</div>

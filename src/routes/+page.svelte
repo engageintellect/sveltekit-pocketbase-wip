@@ -19,7 +19,7 @@
 			year: year
 		};
 
-		if (!title || !artist || !genre) {
+		if (!title || !artist || !genre || !year) {
 			alert('Please fill out all fields');
 			return;
 		} else {
@@ -34,15 +34,27 @@
 </script>
 
 <div class="min-h-screen">
-	<div class="bg-zinc-100">
-		<div class="bg-zinc-100 p=2 lg:p-5 sticky top-0">
+	<div class="">
+		<div class="bg-zinc-300 p-2 lg:p-5 sticky top-0">
 			<div class="text-4xl drop-shadow-lg  font-semibold  py-5">Records</div>
 			<div class="flex flex-col w-full justify-center items-center">
 				<div class="flex flex-col md:flex-row gap-5 w-full">
-					<input class="p-2 w-full" type="text" placeholder="title" bind:value={title} />
-					<input class="p-2 w-full" type="text" placeholder="artist" bind:value={artist} />
-					<input class="p-2 w-full" type="text" placeholder="genre" bind:value={genre} />
-					<input class="p-2 w-full" type="text" placeholder="year" bind:value={year} />
+					<div>
+						<label for="hello world" class="">Title:</label>
+						<input class="p-2 w-full" type="text" bind:value={title} />
+					</div>
+					<div>
+						<label for="hello world" class="">Artist:</label>
+						<input class="p-2 w-full" type="text" bind:value={artist} />
+					</div>
+					<div>
+						<label for="hello world" class="">Genre:</label>
+						<input class="p-2 w-full" type="text" bind:value={genre} />
+					</div>
+					<div>
+						<label for="hello world" class="">Year:</label>
+						<input class="p-2 w-full" type="text" bind:value={year} />
+					</div>
 				</div>
 				<button
 					on:click={() => handleCreate()}
